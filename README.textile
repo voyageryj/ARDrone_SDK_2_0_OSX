@@ -1,6 +1,8 @@
 h2. Current Progress
 * ARDroneLib compiles under OSX
 * Working on converting examples for OSX compilation. Not all examples will be possible due to GTK dependency, these will be removed from repository once identified.
+** Problems with ARDroneTool compilation have been identified by trying to compile the examples. Many, but not all have been fixed
+** Currently biggest problem is in @ARDroneLib/VLIB/Platform/video_config.h@, although @TARGET_CPU_X86=1@ is exported by @ARDroneLib/VP_SDK/Build/sysvar.makefile@ we get @TARGET_CPU_X86=0@ when compiling @video_config.h@, meaning we don't include necessary headers and the compile errors. This could be hacked, but I want to find out why @TARGET_CPU_X86=0@, as this affects other areas of code as well.
 
 h2. Overview of ARDrone_SDK_2_0_OSX
 
@@ -94,9 +96,9 @@ Once you have ffmpeg and pkg-config installed, check that pkg-config can find th
 
 Great, now the compilation process (which uses pkg-config to find the ffmpeg libraries) can link against the existing ffmpeg installation, rather than having to compile the provided source.
 
-h3. Compiling for OSX
+h3. Compiling ARDroneLib for OSX
 
-The package can be compiled either with:
+The ARDroneLib package can be compiled either with:
 <pre><code>% cd ARDroneLib/Soft/Build
 % make USE_OSX=yes clean
 % make USE_OSX=yes
@@ -105,6 +107,22 @@ The package can be compiled either with:
 or with:
 
 <pre><code>% cd ARDroneLib/Soft/Build
+% export USE_OSX=yes
+% make clean
+% make
+</code></pre>
+
+h3. Compiling Examples for OSX
+
+The Examples can be compiled either with:
+<pre><code>% cd ARDroneLib/Examples/OSX
+% make USE_OSX=yes clean
+% make USE_OSX=yes
+</code></pre>
+
+or with:
+
+<pre><code>% cd ARDroneLib/Examples/OSX
 % export USE_OSX=yes
 % make clean
 % make
