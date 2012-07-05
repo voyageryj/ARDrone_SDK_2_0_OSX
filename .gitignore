@@ -1,7 +1,11 @@
 .DS_Store
 *.o
 *.d
-ControlEngine/*
-Examples/*
-Docs/*
-GoogleAPI/*
+*.log
+*.a
+ControlEngine/
+Examples/Linux/
+Examples/iPhone/
+Docs/
+GoogleAPI/
+ARDroneLib/FFMPEG/ffmpeg/
