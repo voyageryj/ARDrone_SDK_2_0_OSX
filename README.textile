@@ -6,9 +6,11 @@ A bug relating to the iOS Simulator was also fixed
 h2. Bug relating to iOS Simulator
 
 Previously, three different macro definitions were used to specify that compilation was for an iOS Simulator target:
+
 * @TARGET_OS_SIMULATOR@
 * @TARGET_IPHONE_SIMULATOR@
 * @TARGET_OS_IPHONE_SIMULATOR@
+
 However only the latter-most was ever defined by the make process, resulting in large chunks of code not being compiled (I presume this was unintentional).
 
 These three macros were all renamed to @TARGET_OS_IPHONE_SIMULATOR@.
@@ -17,13 +19,13 @@ h2. Compilation for OSX
 
 h3. Prerequisites
 
-The ffmpeg libraries (version 0.8) supplied by Parrot as part of the SDK do not compile on OSX. For this reason the flag ffmpeg_EXTERN has been added, allowing linking (on any platform, not just OSX) to externally installed ffmpeg libraries, rather than requiring the compilation of the Parrot supplied libraries.
+The ffmpeg libraries (version 0.8) supplied by Parrot as part of the SDK do not compile on OSX. For this reason the compile flag @FFMPEG_EXTERN@ has been added, allowing linking (on any platform, not just OSX) to externally installed ffmpeg libraries, rather than requiring the compilation of the Parrot supplied libraries.
 
-This flag is turned on whenever @USE_OSX=yes@ is specified (either as an environment variable or on the make command line).
+This flag is forced on whenever @USE_OSX=yes@ is specified (either as an environment variable or on the make command line).
 
-Other platforms must specify this manually, as it will default to ffmpeg_EXTERN=no if not specified (either as an environment variable or on the make command line).
+Other platforms must specify this manually, as it will default to @FFMPEG_EXTERN=no@ if not specified (@FFMPEG_EXTERN=yes@ either as an environment variable or on the make command line).
 
-_pkg-config_ is also a requirement, as the make process uses this to find the location of the external ffmpeg libraries.
+@pkg-config@ is also a requirement, as the make process uses this to find the location of the external ffmpeg libraries.
 
 h4. Installing ffmpeg 0.8.x on OSX
 
