@@ -1,3 +1,7 @@
+h2. Current Progress
+* ARDroneLib compiles under OSX
+* Working on converting examples for OSX compilation. Not all examples will be possible due to GTK dependency
+
 h2. Overview of ARDrone_SDK_2_0_OSX
 
 This repository contains changes to the ARDroneLib source-code and make process to allow compilation for the OSX platform.
