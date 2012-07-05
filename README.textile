@@ -29,7 +29,7 @@ Other platforms must specify this manually, as it will default to @FFMPEG_EXTERN
 
 h4. Installing ffmpeg 0.8.x on OSX
 
-Firstly, ensure you have *ffmpeg 0.8.x*, and pkg-config installed. I did this using Homebrew (http://mxcl.github.com/homebrew/) and will assume you have it installed. Note that the latest version of ffmpeg is from the 0.11 release branch. Parrot uses the 0.8 branch's API, so we need to install an old version (0.8.7) using @brew versions ffmpeg@.
+Firstly, lets install ffmpeg *0.8.x* and pkg-config. I did this using Homebrew (http://mxcl.github.com/homebrew/) and will assume you have it installed. Note that the latest version of ffmpeg is from the 0.11 release branch. Parrot uses the 0.8 branch's API, so we need to install an old version (0.8.7) using @brew versions ffmpeg@.
 
 <pre><code>% brew install pkg-config
 ... pkg-config successfully installed etc
