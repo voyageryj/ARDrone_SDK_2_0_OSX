@@ -373,7 +373,7 @@ else
 	      endif
       else
 	     TARGET_CPU_ARM=0
-        TARGET_CPU_X86=1
+	     TARGET_CPU_X86=1
       endif
     endif
    endif
@@ -393,4 +393,3 @@ export BUILD_MODE
 
 export TARGET_CPU_ARM
 export TARGET_CPU_X86
-

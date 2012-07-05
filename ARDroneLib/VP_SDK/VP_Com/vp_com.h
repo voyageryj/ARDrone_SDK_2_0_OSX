@@ -11,9 +11,6 @@
 
 #include <VP_Os/vp_os_types.h>
 #include <VP_Os/vp_os_signal.h>
-#if defined(TARGET_OSX)
-    #include <VP_Os/darwin/vp_os_serial.h>
-#endif
 
 #ifdef __cplusplus
 extern "C" {

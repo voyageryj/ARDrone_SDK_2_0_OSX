@@ -23,6 +23,24 @@
 // Configuration for x86 Platforms
 ////////////////////////////////////////////
 
+#if (TARGET_CPU_ARM == 1)
+#warning --------- TARGET_CPU_ARM==1 -----------
+#endif
+
+#if (TARGET_CPU_ARM == 0)
+#warning --------- TARGET_CPU_ARM==0 -----------
+#endif
+
+#if (TARGET_CPU_X86 == 1)
+#warning --------- TARGET_CPU_X86==1 -----------
+#endif
+
+#if (TARGET_CPU_X86 == 0)
+#warning --------- TARGET_CPU_X86==0 -----------
+#endif
+
+#warning PROBLEM IS THAT HERE WE SHOULD BE SEEING TARGET_CPU_X86==1, NEED TO FIGURE OUT WHY WE'RE NOT!
+
 #if (TARGET_CPU_X86 == 1) || defined (_WIN32)
 
 #include "x86/video_config.h"

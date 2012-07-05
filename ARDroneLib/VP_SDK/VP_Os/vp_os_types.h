@@ -17,6 +17,10 @@
 # include "vp_os_serial.h"
 #endif // USE_LINUX
 
+#if defined(USE_OSX)
+    #include <VP_Os/darwin/vp_os_serial.h>
+#endif // USE_OSX
+
 #define C_RESULT        int
 #define C_OK            0
 #define C_FAIL          -1

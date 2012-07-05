@@ -113,7 +113,7 @@
 
 #endif
 
-#ifdef USE_LINUX
+#if defined (USE_LINUX) || defined (USE_OSX)
 
 #ifdef USE_MINGW32
 
@@ -122,8 +122,8 @@
 #define SERIAL_LINK_2           ""
 
 #else
-
-// Only USE_LINUX is defined
+#warning These devices are potentially the wrone ones for OSX
+// USE_LINUX or USE_OSX is defined
 #define SERIAL_LINK_0           "/dev/ttyUSB0" /* Serial link for navdata & ATCmd */
 #define SERIAL_LINK_1           "/dev/ttyUSB1" /* Serial link for video */
 #define SERIAL_LINK_2           "/dev/ser2" /* Serial link for adc */
@@ -132,9 +132,15 @@
 
 #endif // USE_LINUX
 
-#define SL0_BAUDRATE             VP_COM_BAUDRATE_460800 /* baud rate for serial link 0 */
-#define SL1_BAUDRATE             VP_COM_BAUDRATE_460800 /* baud rate for serial link 1 */
-#define SL2_BAUDRATE             VP_COM_BAUDRATE_460800 /* baud rate for serial link 2 */
+#if defined (USE_OSX)
+  #define SL0_BAUDRATE             VP_COM_BAUDRATE_230400 /* higher baud rate not supported by OSX */
+  #define SL1_BAUDRATE             VP_COM_BAUDRATE_230400
+  #define SL2_BAUDRATE             VP_COM_BAUDRATE_230400
+#else
+  #define SL0_BAUDRATE             VP_COM_BAUDRATE_460800 /* baud rate for serial link 0 */
+  #define SL1_BAUDRATE             VP_COM_BAUDRATE_460800 /* baud rate for serial link 1 */
+  #define SL2_BAUDRATE             VP_COM_BAUDRATE_460800 /* baud rate for serial link 2 */
+#endif
 
 ///////////////////////////////////////////////
 // Defines & types used in shared data

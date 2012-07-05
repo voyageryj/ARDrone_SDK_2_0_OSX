@@ -175,7 +175,7 @@ ifneq ($(USE_RTMON),yes)
   FLAGS_FILTER_OUT+=-g
 endif
 
-DEFINE_FLAGS=USE_WIFI USE_CAMIF USE_BASEBAND NO_COM USE_SERIAL USE_VLIB USE_MINGW32 USE_DLL USE_LINUX USE_ELINUX USE_PARROTOS_CORE USE_PARROTOS_UTILS USE_PARROTOS_DRIVERS USE_PARROTOS_DEVS USE_PARROTOS_CODEC USE_LIBPLF USE_BROADCOM USE_IWLIB USE_ANDROID FFMPEG_SUPPORT ITTIAM_SUPPORT USE_VIDEO_TCP USE_VIDEO_HD
+DEFINE_FLAGS= USE_OSX USE_WIFI USE_CAMIF USE_BASEBAND NO_COM USE_SERIAL USE_VLIB USE_MINGW32 USE_DLL USE_LINUX USE_ELINUX USE_PARROTOS_CORE USE_PARROTOS_UTILS USE_PARROTOS_DRIVERS USE_PARROTOS_DEVS USE_PARROTOS_CODEC USE_LIBPLF USE_BROADCOM USE_IWLIB USE_ANDROID FFMPEG_SUPPORT FFMPEG_EXTERN ITTIAM_SUPPORT USE_VIDEO_TCP USE_VIDEO_HD
 
 
 ifeq ($(USE_ELINUX),yes)
@@ -237,11 +237,14 @@ else
            ifeq ($(USE_IPHONE),yes)
 		        GENERIC_CFLAGS+=-D__MACOSX__ -std=gnu99
 	            GENERIC_CFLAGS+=-arch $(PLATFORM_PREFERRED_ARCH)
-		     else  
+		   else
+		   	  ifeq ($(USE_OSX),yes)
+		   	    GENERIC_CFLAGS+=-D__MACOSX__ -std=gnu99
+	          else
 		        ifeq ($(USE_LINUX), yes)        
 			       GENERIC_CFLAGS+=-D__LINUX__
-              else
-                 ifeq ($(USE_ANDROID),yes)
+                else
+                  ifeq ($(USE_ANDROID),yes)
 						  TARGET_arm_release_CFLAGS :=  -O2 \
 								-fomit-frame-pointer \
 								-fstrict-aliasing    \
@@ -257,6 +260,7 @@ else
 								 -fno-short-enums \
 								 -D__ARM_ARCH_5__ -D__ARM_ARCH_5T__ \
 								 -D__ARM_ARCH_5E__ -D__ARM_ARCH_5TE__
+                  endif
                  endif
 		        endif
 	        endif
