@@ -82,7 +82,7 @@ Firstly, lets install ffmpeg *0.8.x* and pkg-config. I did this using Homebrew (
   libpostproc  51.  2. 0 / 51.  2. 0
 </code></pre>
 
-Once you have ffmpeg and pkg-config installed, check that pkg-config can find the ffmpeg libraries
+Once you have ffmpeg and pkg-config installed, check that pkg-config can find the ffmpeg libraries (note the second line -L etc is the command output)
 
 <pre><code>% pkg-config --libs libavutil
   -L/usr/local/Cellar/ffmpeg/0.8.7/lib -lavutil
