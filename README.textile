@@ -1,8 +1,10 @@
 h2. Overview of ARDrone_SDK_2_0_OSX
+
 This repository contains changes to the ARDroneLib source-code and make process to allow compilation for the OSX platform.
 A bug relating to the iOS Simulator was also fixed
 
 h2. Bug relating to iOS Simulator
+
 Previously, three different macro definitions were used to specify that compilation was for an iOS Simulator target:
 * TARGET_OS_SIMULATOR
 * TARGET_IPHONE_SIMULATOR
@@ -14,6 +16,7 @@ These three macros were all renamed to TARGET_OS_IPHONE_SIMULATOR.
 h2. Compilation for OSX
 
 h3. Prerequisites
+
 The ffmpeg libraries (version 0.8) supplied by Parrot as part of the SDK do not compile on OSX. For this reason the flag ffmpeg_EXTERN has been added, allowing linking (on any platform, not just OSX) to externally installed ffmpeg libraries, rather than requiring the compilation of the Parrot supplied libraries.
 
 This flag is turned on whenever @USE_OSX=yes@ is specified (either as an environment variable or on the make command line).
@@ -23,6 +26,7 @@ Other platforms must specify this manually, as it will default to ffmpeg_EXTERN=
 _pkg-config_ is also a requirement, as the make process uses this to find the location of the external ffmpeg libraries.
 
 h4. Installing ffmpeg 0.8.x on OSX
+
 Firstly, ensure you have *ffmpeg 0.8.x*, and pkg-config installed. I did this using Homebrew (http://mxcl.github.com/homebrew/) and will assume you have it installed. Note that the latest version of ffmpeg is from the 0.11 release branch. Parrot uses the 0.8 branch's API, so we need to install an old version (0.8.7) using @brew versions ffmpeg@.
 
 <pre>
@@ -91,6 +95,7 @@ Once you have ffmpeg and pkg-config installed, check that pkg-config can find th
 Great, now the compilation process (which uses pkg-config to find the ffmpeg libraries) can link against the existing ffmpeg installation, rather than having to compile the provided source.
 
 h3. Compiling for OSX
+
 The package can be compiled either with:
 <pre>
 	<code>
