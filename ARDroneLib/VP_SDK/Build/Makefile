@@ -117,6 +117,8 @@ $(foreach target,$(TARGETS),$(eval $(call ADD_RULE_TEMPLATE,$(target))))
 
 
 makefileverbose:
+	@echo ""
+	@echo "VP_SDK/Build"
 	@echo "Dump compilation flags:"
 	@echo "GENERIC_CFLAGS : $(GENERIC_CFLAGS)"
 	@echo "GENERIC_LIBS : $(GENERIC_LIBS)"
@@ -145,13 +147,13 @@ makefileverbose:
 define GENERIC_RULES_TEMPLATE
   ifneq ($(1),dll)
     build_$(1): before_check
-#		@echo "\nCalling mkfile for $(1)..."
+		@echo "\nCalling mkfile for $(1)..."
    ifeq ("$$(VPSDK_PARALLEL_BUILD)","yes")
 		@setlock /tmp/$(1).lock $$(MAKE) -f $(1).makefile $$(MAKECMDGOALS)
    else
 		@$$(MAKE) -f $(1).makefile $$(MAKECMDGOALS)
    endif
-#		@echo "...$(1) done.\n"
+		@echo "...$(1) done.\n"
   endif
 endef
 

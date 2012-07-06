@@ -16,7 +16,7 @@ else
    ARDRONE_TARGET_DIR=$(shell pwd)/../../Build/Debug
 endif
 
-TARGET=linux_sdk_demo
+TARGET=osx_sdk_demo
 
 SRC_DIR:=$(shell pwd)/../Sources
 
@@ -43,10 +43,10 @@ GENERIC_BINARIES_SOURCE_ENTRYPOINTS+=			\
 GENERIC_INCLUDES:=$(addprefix -I,$(GENERIC_INCLUDES))
 
 GENERIC_LIB_PATHS=-L$(GENERIC_TARGET_BINARIES_DIR)
-GENERIC_LIBS=-lpc_ardrone -lgtk-x11-2.0 -lrt
+GENERIC_LIBS=-lpc_ardrone
 
 SDK_FLAGS+="USE_APP=yes"
-SDK_FLAGS+="APP_ID=linux_sdk_demo"
+SDK_FLAGS+="APP_ID=osx_sdk_demo"
 
 export GENERIC_CFLAGS
 export GENERIC_LIBS

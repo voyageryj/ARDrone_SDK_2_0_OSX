@@ -101,5 +101,11 @@ export GENERIC_BINARIES_SOURCE_ENTRYPOINTS=
 export GENERIC_BINARIES_COMMON_SOURCE_FILES=
 
 all $(MAKECMDGOALS):
+	@echo "---------- VP_SDK/Build/vlib.makefile ------------"
+	@echo TARGET_CPU_X86 == $(TARGET_CPU_X86)
+	@echo GENERIC_CFLAGS == $(GENERIC_CFLAGS)
+	@echo GENERIC_INCLUDES == $(GENERIC_INCLUDES)
+	@echo MAKECMDGOALS == $(MAKECMDGOALS)
+	@echo "--------------------------------------------------"
 	@$(MAKE) -f generic.makefile $(MAKECMDGOALS)
 

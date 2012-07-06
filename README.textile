@@ -4,6 +4,10 @@ h2. Current Progress
 ** Problems with ARDroneTool compilation have been identified by trying to compile the examples. Many, but not all have been fixed
 ** Currently biggest problem is in @ARDroneLib/VLIB/Platform/video_config.h@, although @TARGET_CPU_X86=1@ is exported by @ARDroneLib/VP_SDK/Build/sysvar.makefile@ we get @TARGET_CPU_X86=0@ when compiling @video_config.h@, meaning we don't include necessary headers and the compile errors. This could be hacked, but I want to find out why @TARGET_CPU_X86=0@, as this affects other areas of code as well.
 
+*06-July*
+
+Found that the problem with @TARGET_CPU_X86=0@ occurs somewhere between @ARDroneLib/VP_SDK/Build/vlib.makefile@ being called (where @TARGET_CPU_X86=1@), and the file being compiled, I presume by @generic.makefile@ but I'm not sure.  See make output.
+
 h2. Overview of ARDrone_SDK_2_0_OSX
 
 This repository contains changes to the ARDroneLib source-code and make process to allow compilation for the OSX platform.

@@ -173,10 +173,10 @@ define BUILD_OFILE_TEMPLATE
   endif
 	$$(INTERNAL_CC) -M $$(filter-out -Wall,$$(GENERIC_CFLAGS)) -w $$(CFLAGS_$$(subst /,_,$$*)) $$(GENERIC_INCLUDES) $$(GENERIC_$(1)_SOURCE_DIR)/$$*$(2) > $$@
 ifeq ($(USE_IPHONE),yes)
-   @sed -ie 's,\(.*\.o\)\([ :]*\),\1 $$@\2,g' $$@
+	@sed -ie 's,\(.*\.o\)\([ :]*\),\1 $$@\2,g' $$@
 else
 ifeq ($(USE_OSX),yes)
-   @sed -ie 's,\(.*\.o\)\([ :]*\),\1 $$@\2,g' $$@
+	@sed -ie 's,\(.*\.o\)\([ :]*\),\1 $$@\2,g' $$@
 else
 	@sed -i 's,\(.*\.o\)\([ :]*\),\1 $$@\2,g' $$@	
 endif

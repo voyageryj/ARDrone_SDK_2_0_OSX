@@ -84,6 +84,8 @@ build_libs:
 	@$(MAKE) -C $(SDK_PATH)/Soft/Build $(TMP_SDK_FLAGS) $(SDK_FLAGS) $(MAKECMDGOALS) USE_OSX=yes
 
 makefileverbose:
+	@echo ""
+	@echo "Transcoder"
 	@echo "Dump compilation flags:"
 	@echo "GENERIC_CFLAGS : $(GENERIC_CFLAGS)"
 	@echo "GENERIC_LIBS : $(GENERIC_LIBS)"

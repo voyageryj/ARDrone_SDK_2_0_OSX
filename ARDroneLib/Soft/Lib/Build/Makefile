@@ -167,6 +167,8 @@ all $(MAKECMDGOALS):
 	@$(MAKE) -C ../../../VP_SDK/Build $(TMP_SDK_FLAGS) $(SDK_FLAGS) $(MAKECMDGOALS)
 	
 makefileverbose:
+	@echo ""
+	@echo "Soft/Lib/Build"
 	@echo "Dump compilation flags:"
 	@echo "GENERIC_CFLAGS : $(GENERIC_CFLAGS)"
 	@echo "GENERIC_LIBS : $(GENERIC_LIBS)"
