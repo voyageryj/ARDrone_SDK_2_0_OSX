@@ -13,9 +13,9 @@
 #include <VP_Os/vp_os_signal.h>
 #include <VP_Os/vp_os_print.h>
 
-#if !defined(TARGET_OS_IPHONE) && !defined(TARGET_OS_IPHONE_SIMULATOR)
+#if !defined(TARGET_OS_IPHONE) && !defined(TARGET_IPHONE_SIMULATOR)
 # include <VP_Api/vp_api_thread_helper.h>
-#endif // ! TARGET_OS_IPHONE && ! TARGET_OS_IPHONE_SIMULATOR
+#endif // ! TARGET_OS_IPHONE && ! TARGET_IPHONE_SIMULATOR
 
 #include <ATcodec/ATcodec_api.h>
 #include <ATcodec/ATcodec_Buffer.h>
@@ -37,7 +37,7 @@ static int32_t       ATcodec_Message_len = 0;
 
 static int32_t v_continue = 0;
 
-#if !defined(TARGET_OS_IPHONE) && !defined(TARGET_OS_IPHONE_SIMULATOR)
+#if !defined(TARGET_OS_IPHONE) && !defined(TARGET_IPHONE_SIMULATOR)
 static ATCODEC_RET
 test_dyn_strs_one_node(ATcodec_Tree_t *tree, ATcodec_Tree_Node_t *node, int depth, const char *dynamic_str, ATcodec_Memory_t *memory, AT_CODEC_Message_Received *ptr, int *len_dec)
 {
@@ -355,7 +355,7 @@ ATcodec_Shutdown_Library_Tree   (ATcodec_Tree_t *tree)
 }
 
 
-#if !defined(TARGET_OS_IPHONE) && !defined(TARGET_OS_IPHONE_SIMULATOR)
+#if !defined(TARGET_OS_IPHONE) && !defined(TARGET_IPHONE_SIMULATOR)
 // \todo CHANGE THE '\r'
 static int append_reception(char *buffer, int len, char *global_buffer, int *global_len, int global_buffer_limit)
 {
@@ -569,7 +569,7 @@ DEFINE_THREAD_ROUTINE_STACK(ATcodec_Commands_Server,data,ATCODEC_STACK_SIZE)
 	
   return((THREAD_RET)0);
 }
-#endif // ! TARGET_OS_IPHONE && ! TARGET_OS_IPHONE_SIMULATOR
+#endif // ! TARGET_OS_IPHONE && ! TARGET_IPHONE_SIMULATOR
 
 
 static ATCODEC_RET
@@ -714,7 +714,7 @@ ATcodec_Send_Messages()
   return res;
 }
 
-#if !defined(TARGET_OS_IPHONE) && !defined(TARGET_OS_IPHONE_SIMULATOR)
+#if !defined(TARGET_OS_IPHONE) && !defined(TARGET_IPHONE_SIMULATOR)
 DEFINE_THREAD_ROUTINE_STACK(ATcodec_Commands_Client,data,ATCODEC_STACK_SIZE)
 {
   AT_CODEC_ERROR_CODE res;
@@ -762,7 +762,7 @@ DEFINE_THREAD_ROUTINE_STACK(ATcodec_Commands_Client,data,ATCODEC_STACK_SIZE)
 	
   return((THREAD_RET)0);
 }
-#endif // ! TARGET_OS_IPHONE && ! TARGET_OS_IPHONE_SIMULATOR
+#endif // ! TARGET_OS_IPHONE && ! TARGET_IPHONE_SIMULATOR
 
 
 void ATcodec_exit_thread(void)

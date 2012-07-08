@@ -193,7 +193,9 @@ endif
 GENERIC_CFLAGS+=-Wall 
 #-Werror -Wfatal-errors -Wno-unused-variable
 
-GENERIC_LDFLAGS+=-Wl,--warn-common
+GENERIC_LDFLAGS+=-Wl
+#GENERIC_LDFLAGS+=--warn-common
+#GENERIC_LDFLAGS+=-arch i386
 
 ifeq ("$(BUILD_MODE)","PROD_MODE")
   GENERIC_CFLAGS+=-O3 -DCOMPIL_MODE_PROD
@@ -241,7 +243,10 @@ else
 	            GENERIC_CFLAGS+=-arch $(PLATFORM_PREFERRED_ARCH)
 		   else
 		   	  ifeq ($(USE_OSX),yes)
-		   	    GENERIC_CFLAGS+=-D__MACOSX__ -std=gnu99
+		   	  	#DONT SET __MACOSX__ HERE, Parrot use __MACOSX__ to mean iPhone and conditionally compile the wrong parts of code for OSX
+		   	    #GENERIC_CFLAGS+=-D__MACOSX__
+		   	    GENERIC_CFLAGS+=-D__LINUX__
+		   	    GENERIC_CFLAGS+=-std=gnu99
 	          else
 		        ifeq ($(USE_LINUX), yes)        
 			       GENERIC_CFLAGS+=-D__LINUX__

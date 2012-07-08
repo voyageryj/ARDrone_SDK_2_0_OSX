@@ -44,7 +44,7 @@
 /* Uncomment to force all apps to generate .mov format instead of .mp4 for non-apple devices */
 //#define FORCE_MOV_FORMAT
 
-#if defined(TARGET_OS_IPHONE) || defined (TARGET_OS_IPHONE_SIMULATOR) || defined(TARGET_OSX) || defined (FORCE_MOV_FORMAT)
+#if defined(TARGET_OS_IPHONE) || defined (TARGET_IPHONE_SIMULATOR) || defined(TARGET_OSX) || defined (FORCE_MOV_FORMAT)
 #define MOVIE_FILE_EXTENSION "mov"
 #define VIDEO_FORMAT (ARDRONE_VIDEO_MOV)
 #else

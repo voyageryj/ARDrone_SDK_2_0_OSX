@@ -122,7 +122,7 @@
 #define SERIAL_LINK_2           ""
 
 #else
-#warning These devices are potentially the wrone ones for OSX
+#warning These devices are potentially the wrone ones for OSX, but they don't exist on linux either so I'm wondering whether they're for something else
 // USE_LINUX or USE_OSX is defined
 #define SERIAL_LINK_0           "/dev/ttyUSB0" /* Serial link for navdata & ATCmd */
 #define SERIAL_LINK_1           "/dev/ttyUSB1" /* Serial link for video */

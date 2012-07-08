@@ -64,7 +64,7 @@ typedef unsigned  __int64   uint64_t;
 
 #endif // < _WIN32
 
-#if defined(__NDS__) || defined(TARGET_OS_IPHONE) || defined(TARGET_OS_IPHONE_SIMULATOR)
+#if defined(__NDS__) || defined(TARGET_OS_IPHONE) || defined(TARGET_IPHONE_SIMULATOR)
 
 #ifdef __NDS__
 #include <nds.h>
@@ -74,7 +74,7 @@ typedef unsigned  __int64   uint64_t;
 #define NULL (void*)0
 #endif
 
-#endif // < __NDS__ || TARGET_OS_IPHONE || TARGET_OS_IPHONE_SIMULATOR
+#endif // < __NDS__ || TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR
 
 typedef float               float32_t;
 typedef double              float64_t;

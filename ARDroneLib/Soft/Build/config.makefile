@@ -95,12 +95,14 @@ ifdef PC_TARGET
      ifeq ($(PLATFORM_NAME),iphoneos)
         GENERIC_CFLAGS+=-DTARGET_OS_IPHONE
      else
-        GENERIC_CFLAGS+=-DTARGET_OS_IPHONE_SIMULATOR
+        GENERIC_CFLAGS+=-DTARGET_IPHONE_SIMULATOR
      endif
   endif
 
   ifeq ("$(USE_OSX)","yes")
       GENERIC_CFLAGS+=-DTARGET_OSX
+      #forcing i386 architecture seems like a fun idea, however because we're linking against external ffmpeg libraries, which are built for x64, we have problems at link-time
+      #GENERIC_CFLAGS+=-arch i386
       SDK_FLAGS+="USE_OSX=yes"
   else
       SDK_FLAGS+="USE_OSX=no"

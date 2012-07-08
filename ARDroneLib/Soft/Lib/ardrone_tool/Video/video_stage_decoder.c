@@ -40,7 +40,7 @@ C_RESULT mp4h264_close (mp4h264_config_t *cfg);
 /**
  * DEBUG ZONE
  */
-#if defined(TARGET_OS_IPHONE) || defined (TARGET_OS_IPHONE_SIMULATOR) || defined(TARGET_OSX)
+#if defined(TARGET_OS_IPHONE) || defined (TARGET_IPHONE_SIMULATOR) || defined(TARGET_OSX)
 #include <mach/mach_time.h>
 #endif
 float DEBUG_decodingTimeUsec = 0.0;
@@ -148,7 +148,7 @@ C_RESULT video_stage_decoder_transform (video_decoder_config_t *cfg, vp_api_io_d
   uint8_t *buffer = in->buffers[in->indexBuffer];
   static int lastDecodedStreamID = -1;
 
-#if defined(TARGET_OS_IPHONE) || defined (TARGET_OS_IPHONE_SIMULATOR) || defined(TARGET_OSX)
+#if defined(TARGET_OS_IPHONE) || defined (TARGET_IPHONE_SIMULATOR) || defined(TARGET_OSX)
   uint64_t startTime = 0;
   uint64_t stopTime = 0;
   uint64_t elapsedNano = 0;
@@ -266,7 +266,7 @@ C_RESULT video_stage_decoder_transform (video_decoder_config_t *cfg, vp_api_io_d
       retVal = C_OK;
     }
 
-#if defined(TARGET_OS_IPHONE) || defined (TARGET_OS_IPHONE_SIMULATOR) || defined(TARGET_OSX)
+#if defined(TARGET_OS_IPHONE) || defined (TARGET_IPHONE_SIMULATOR) || defined(TARGET_OSX)
   stopTime = mach_absolute_time ();
   elapsedNano = (stopTime - startTime) * sTimebaseInfo.numer / sTimebaseInfo.denom;
   if (0.0 == DEBUG_decodingTimeUsec)

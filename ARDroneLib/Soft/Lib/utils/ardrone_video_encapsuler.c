@@ -1143,7 +1143,7 @@ ardrone_video_error_t ardrone_video_cleanup (ardrone_video_t **video)
 int ftwCallback (const char *fpath, const struct stat *sb, int typeflag, struct FTW *ftwbuf)
 {
     // ENCAPSULER_DEBUG ("Processing file %s\n", fpath);
-#if defined(TARGET_OS_IPHONE) || defined (TARGET_OS_IPHONE_SIMULATOR) || defined(TARGET_OSX)
+#if defined(TARGET_OS_IPHONE) || defined (TARGET_IPHONE_SIMULATOR) || defined(TARGET_OSX)
     if (FTW_F == typeflag) // Check only plain files
     {
         char *infoFile = strstr (fpath, INFOFILE_EXT);
@@ -1246,7 +1246,7 @@ ardrone_video_error_t ardrone_video_remove_all (const char *rootDir)
 #else
 #define MAX_FD_FOR_NFTW (20)
     ardrone_video_error_t retError = ARDRONE_VIDEO_NO_ERROR;
-#if defined (TARGET_OS_IPHONE) || defined (TARGET_OS_IPHONE_SIMULATOR) || defined(TARGET_OSX)
+#if defined (TARGET_OS_IPHONE) || defined (TARGET_IPHONE_SIMULATOR) || defined(TARGET_OSX)
     int NFTW_Flags = 0;
 #else
     int NFTW_Flags = FTW_ACTIONRETVAL;

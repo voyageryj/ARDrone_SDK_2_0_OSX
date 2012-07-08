@@ -134,6 +134,10 @@ ifeq ($(TARGET_CPU_X86),1)
   GENERIC_INCLUDES+=			\
 	-I$(VLIB_SOURCE_DIR)/Platform/x86
 endif
+ifeq ($(TARGET_CPU_X86_64),1)
+  GENERIC_INCLUDES+=			\
+	-I$(VLIB_SOURCE_DIR)/Platform/x86
+endif
 endif
 endif
 ifeq ($(NO_COM),no)

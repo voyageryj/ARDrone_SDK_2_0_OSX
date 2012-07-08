@@ -3,7 +3,7 @@
 
 /* Default configuration for x86 platform */
 
-#if (TARGET_CPU_X86 == 1) || defined (_WIN32)
+#if (TARGET_CPU_X86 == 1) || (TARGET_CPU_X86_64 == 1) || defined (_WIN32)
 
 #define DEFAULT_QUANTIZATION          (6)
 

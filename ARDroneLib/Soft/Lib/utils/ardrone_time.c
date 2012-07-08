@@ -13,7 +13,7 @@ static int _gettimeofday (struct timeval *tp, void *tz)
     tp->tv_usec = (long)timebuffer.millitm * 1000;
     return 0;
 }
-#elif defined(TARGET_OS_IPHONE) || defined(TARGET_OS_IPHONE_SIMULATOR) || defined(TARGET_OSX)
+#elif defined(TARGET_OS_IPHONE) || defined(TARGET_IPHONE_SIMULATOR) || defined(TARGET_OSX)
 #include <mach/mach_time.h>
 static int _gettimeofday (struct timeval *tp, void *tz)
 {
