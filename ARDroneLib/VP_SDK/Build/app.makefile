@@ -30,5 +30,13 @@ export GENERIC_LIBRARY_TARGET_DIR=$(GENERIC_BINARIES_TARGET_DIR)
 
 
 all $(MAKECMDGOALS):
+	@echo "---------- VP_SDK/Build/app.makefile ------------"
+	@echo GENERIC_ADD_OFILES == $(GENERIC_ADD_OFILES)
+	@echo GENERIC_INCLUDES == $(GENERIC_INCLUDES)
+	@echo GENERIC_LIB_PATHS == $(GENERIC_LIB_PATHS)
+	@echo GENERIC_LIBS == $(GENERIC_LIBS)
+	@echo GENERIC_BINARIES_LIBS_DEPS == $(GENERIC_BINARIES_LIBS_DEPS)
+	@echo GENERIC_BINARIES_TARGET_DIR == $(GENERIC_BINARIES_TARGET_DIR)
+	@echo "--------------------------------------------------"
 	@$(MAKE) -f generic.makefile $(MAKECMDGOALS)
 
