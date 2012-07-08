@@ -8,11 +8,11 @@ h2. Current Progress
 Thanks to Randal Walser who solved the TARGET_CPU_X86=0 problem!
 
 _Changes:_
-* Fixed the TARGET_CPU_X86 problem that Randal solved.
-** Added " || TARGET_CPU_X86_64 == 1 " checks to any conditional compilations requiring " TARGET_CPU_X86 == 1 "
-** Also removed the __MACOSX__ definition for USE_OSX. Parrot are using __MACOSX__ to conditionally compile (or not compile) sections of code for iOS devices.  Now __LINUX__ will be defined for USE_OSX, which seems to work well.
+* Fixed the @TARGET_CPU_X86@ problem that Randal solved.
+** Added @TARGET_CPU_X86_64 == 1@ checks to any conditional compilations requiring @TARGET_CPU_X86 == 1@
+** Also removed the @__MACOSX__@ definition for @USE_OSX@. Parrot are using @__MACOSX__@ to conditionally compile (or not compile) sections of code for iOS devices.  Now @__LINUX__@ will be defined for @USE_OSX@, which seems to work well.
 * Updated README
-* Updated TARGET_OS_IPHONE_SIMULATOR to TARGET_IPHONE_SIMULATOR to match up with internal apple code
+* Updated @TARGET_OS_IPHONE_SIMULATOR@ to @TARGET_IPHONE_SIMULATOR@ to match up with internal apple code
 
 I believe we're almost there.  The (hopefully final) problem that remains is a link error encountered when linking the final product to be built:
 
