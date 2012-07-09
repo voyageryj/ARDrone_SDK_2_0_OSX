@@ -1,42 +1,6 @@
 h2. Current Progress
 * ARDroneLib compiles under OSX
-* Working on converting examples for OSX compilation. Not all examples will be possible due to GTK dependency, these will be removed from repository once identified.
-** Problems with ARDroneTool compilation have been identified by trying to compile the examples. Many, but not all have been fixed
-
-*09-July*
-
-I believe we're almost there.  The (hopefully final) problem that remains is a link error encountered when linking the final product to be built. I'm guessing there is a missing file somewhere in the link arguments. Output follows:
-
-<pre><code>ld ardrone_testing_tool
-ld: warning: directory not found for option '-L../../Soft/Build/targets_versions/Darwin_11.4.0_usrbingcc_4.2.1/install/lib'
-ld: warning: directory not found for option '-L../../Soft/Build/targets_versions/vision_lib_PROD_MODE_vlib_Darwin_11.4.0_usrbingcc_4.2.1'
-Undefined symbols for architecture x86_64:
-  "_demo_navdata_client_init", referenced from:
-      _ardrone_navdata_handler_table in navdata.o
-  "_demo_navdata_client_process", referenced from:
-      _ardrone_navdata_handler_table in navdata.o
-  "_demo_navdata_client_release", referenced from:
-      _ardrone_navdata_handler_table in navdata.o
-ld: symbol(s) not found for architecture x86_64</code></pre>
-
-Although it hints that the problem may lie with the architecture, this is the default message when it cannot find a symbol.  I am farily certain that it has nothing to do with the architecture, rather simply an inability to find the symbols.
-
-Interesting are the two not-found library directories mentioned:
-* @../../Soft/Build/targets_versions/Darwin_11.4.0_usrbingcc_4.2.1/install/lib@ (added by ARDroneLib/VP_SDK/Build/common.makefile:187)
-* @../../Soft/Build/targets_versions/vision_lib_PROD_MODE_vlib_Darwin_11.4.0_usrbingcc_4.2.1@ (added by ARDroneLib/VP_SDK/Build/sysvar.makefile:151)
-
-I have checked on linux, and these directories are also non existant there. Will need to investigate this further.
-
-*08-July*
-
-Thanks to Randal Walser who solved the TARGET_CPU_X86=0 problem!
-
-_Changes:_
-* Fixed the @TARGET_CPU_X86@ problem that Randal solved.
-** Added @TARGET_CPU_X86_64 == 1@ checks to any conditional compilations requiring @TARGET_CPU_X86 == 1@
-** Also removed the @__MACOSX__@ definition for @USE_OSX@. Parrot are using @__MACOSX__@ to conditionally compile (or not compile) sections of code for iOS devices.  Now @__LINUX__@ will be defined for @USE_OSX@, which seems to work well.
-* Updated README
-* Updated @TARGET_OS_IPHONE_SIMULATOR@ to @TARGET_IPHONE_SIMULATOR@ to match up with internal apple code
+* All demos (except Navigation which relies on GTK) compile under OSX, however have not been tested on an ARDrone yet
 
 h2. Overview of ARDrone_SDK_2_0_OSX
 
