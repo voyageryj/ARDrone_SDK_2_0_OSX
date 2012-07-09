@@ -3,18 +3,9 @@ h2. Current Progress
 * Working on converting examples for OSX compilation. Not all examples will be possible due to GTK dependency, these will be removed from repository once identified.
 ** Problems with ARDroneTool compilation have been identified by trying to compile the examples. Many, but not all have been fixed
 
-*08-July*
+*09-July*
 
-Thanks to Randal Walser who solved the TARGET_CPU_X86=0 problem!
-
-_Changes:_
-* Fixed the @TARGET_CPU_X86@ problem that Randal solved.
-** Added @TARGET_CPU_X86_64 == 1@ checks to any conditional compilations requiring @TARGET_CPU_X86 == 1@
-** Also removed the @__MACOSX__@ definition for @USE_OSX@. Parrot are using @__MACOSX__@ to conditionally compile (or not compile) sections of code for iOS devices.  Now @__LINUX__@ will be defined for @USE_OSX@, which seems to work well.
-* Updated README
-* Updated @TARGET_OS_IPHONE_SIMULATOR@ to @TARGET_IPHONE_SIMULATOR@ to match up with internal apple code
-
-I believe we're almost there.  The (hopefully final) problem that remains is a link error encountered when linking the final product to be built:
+I believe we're almost there.  The (hopefully final) problem that remains is a link error encountered when linking the final product to be built. I'm guessing there is a missing file somewhere in the link arguments. Output follows:
 
 <pre><code>ld ardrone_testing_tool
 ld: warning: directory not found for option '-L../../Soft/Build/targets_versions/Darwin_11.4.0_usrbingcc_4.2.1/install/lib'
@@ -26,40 +17,6 @@ Undefined symbols for architecture x86_64:
       _ardrone_navdata_handler_table in navdata.o
   "_demo_navdata_client_release", referenced from:
       _ardrone_navdata_handler_table in navdata.o
-  "_vp_com_open_socket", referenced from:
-      _thread_ftpList in libpc_ardrone.a(ardrone_ftp.o)
-      _thread_ftpGet in libpc_ardrone.a(ardrone_ftp.o)
-      _thread_ftpPut in libpc_ardrone.a(ardrone_ftp.o)
-      _ftpConnect in libpc_ardrone.a(ardrone_ftp.o)
-  "_vp_com_close_socket", referenced from:
-      _thread_ftpList in libpc_ardrone.a(ardrone_ftp.o)
-      _thread_ftpGet in libpc_ardrone.a(ardrone_ftp.o)
-      _thread_ftpPut in libpc_ardrone.a(ardrone_ftp.o)
-      _ftpClose in libpc_ardrone.a(ardrone_ftp.o)
-  "_vp_com_wf_init", referenced from:
-      _vp_com_init in libsdk.a(vp_com.o)
-  "_vp_com_wf_shutdown", referenced from:
-      _vp_com_init in libsdk.a(vp_com.o)
-  "_vp_com_wf_network_adapter_lookup", referenced from:
-      _vp_com_init in libsdk.a(vp_com.o)
-  "_vp_com_wf_local_config", referenced from:
-      _vp_com_init in libsdk.a(vp_com.o)
-  "_vp_com_wf_inquire", referenced from:
-      _vp_com_init in libsdk.a(vp_com.o)
-  "_vp_com_wf_connect", referenced from:
-      _vp_com_init in libsdk.a(vp_com.o)
-  "_vp_com_wf_disconnect", referenced from:
-      _vp_com_init in libsdk.a(vp_com.o)
-  "_vp_com_wf_get_rssi", referenced from:
-      _vp_com_init in libsdk.a(vp_com.o)
-  "_vp_com_wf_wait_connections", referenced from:
-      _vp_com_init in libsdk.a(vp_com.o)
-  "_vp_com_wf_open", referenced from:
-      _vp_com_init in libsdk.a(vp_com.o)
-  "_vp_com_wf_close", referenced from:
-      _vp_com_init in libsdk.a(vp_com.o)
-  "_vp_com_sockopt_ip", referenced from:
-      _vp_com_sockopt in libsdk.a(vp_com.o)
 ld: symbol(s) not found for architecture x86_64</code></pre>
 
 Although it hints that the problem may lie with the architecture, this is the default message when it cannot find a symbol.  I am farily certain that it has nothing to do with the architecture, rather simply an inability to find the symbols.
@@ -69,6 +26,17 @@ Interesting are the two not-found library directories mentioned:
 * @../../Soft/Build/targets_versions/vision_lib_PROD_MODE_vlib_Darwin_11.4.0_usrbingcc_4.2.1@ (added by ARDroneLib/VP_SDK/Build/sysvar.makefile:151)
 
 I have checked on linux, and these directories are also non existant there. Will need to investigate this further.
+
+*08-July*
+
+Thanks to Randal Walser who solved the TARGET_CPU_X86=0 problem!
+
+_Changes:_
+* Fixed the @TARGET_CPU_X86@ problem that Randal solved.
+** Added @TARGET_CPU_X86_64 == 1@ checks to any conditional compilations requiring @TARGET_CPU_X86 == 1@
+** Also removed the @__MACOSX__@ definition for @USE_OSX@. Parrot are using @__MACOSX__@ to conditionally compile (or not compile) sections of code for iOS devices.  Now @__LINUX__@ will be defined for @USE_OSX@, which seems to work well.
+* Updated README
+* Updated @TARGET_OS_IPHONE_SIMULATOR@ to @TARGET_IPHONE_SIMULATOR@ to match up with internal apple code
 
 h2. Overview of ARDrone_SDK_2_0_OSX
 
