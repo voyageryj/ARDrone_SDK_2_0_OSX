@@ -23,7 +23,7 @@
 #define CYGPKG_NET 1
 #endif
 
-#if defined(USE_MINGW32) || defined(TARGET_OS_IPHONE) || defined(TARGET_IPHONE_SIMULATOR)
+#if defined(USE_MINGW32) || defined(TARGET_OS_IPHONE) || defined(TARGET_IPHONE_SIMULATOR) || defined(TARGET_OSX)
 
 #define MSG_NOSIGNAL 0
 

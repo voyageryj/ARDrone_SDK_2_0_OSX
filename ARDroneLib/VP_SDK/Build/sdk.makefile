@@ -92,6 +92,15 @@ ifeq ($(USE_WIFI),yes)
 endif
 endif
 
+# copied the above USE_LINUX includes
+ifeq ($(USE_OSX),yes)
+  BUILD_COM_BASE:=yes
+ifeq ($(USE_WIFI),yes)
+  GENERIC_LIBRARY_SOURCE_FILES +=			\
+	$(COM_PATH)/linux/vp_com_wifi.c
+endif
+endif
+
 ifeq ($(USE_ANDROID),yes)
   BUILD_COM_BASE:=yes
 ifeq ($(USE_WIFI),yes)
