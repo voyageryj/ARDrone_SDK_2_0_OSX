@@ -1,0 +1,12 @@
+prefix=
+exec_prefix=
+libdir=${pcfiledir}
+includedir=/Users/mike/Dropbox/Masters/Project/Code/ARDrone_SDK_2_0_OSX/ARDroneLib/FFMPEG/ffmpeg
+
+Name: libavfilter
+Description: FFmpeg video filtering library
+Version: 2.23.0
+Requires: 
+Conflicts:
+Libs: ${libdir}/libavfilter.a -Wl,-framework,Cocoa -L/usr/local/lib -lSDLmain -lSDL -lm -lbz2 -lz 
+Cflags: -I${includedir}

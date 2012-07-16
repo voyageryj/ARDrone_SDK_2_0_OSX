@@ -1,0 +1,12 @@
+prefix=
+exec_prefix=
+libdir=${pcfiledir}
+includedir=/Users/mike/Dropbox/Masters/Project/Code/ARDrone_SDK_2_0_OSX/ARDroneLib/FFMPEG/ffmpeg
+
+Name: libavcodec
+Description: FFmpeg codec library
+Version: 53.7.0
+Requires: libavutil = 51.9.1
+Conflicts:
+Libs: ${libdir}/libavcodec.a -Wl,-framework,Cocoa -L/usr/local/lib -lSDLmain -lSDL -lm -lbz2 -lz 
+Cflags: -I${includedir}

@@ -179,19 +179,20 @@ ifdef PC_TARGET
         SDK_FLAGS+="USE_VIDEO_TCP=yes"
         SDK_FLAGS+="USE_VIDEO_HD=no"
      endif
-     SDK_FLAGS+="FFMPEG_EXTERN=yes" # we require this for mac because the supplied build doesn't build on osx
-  else
-     ifndef USE_EXTERN_FFMPEG # but you can use it on other platforms as well by defining USE_EXTERN_FFMPEG=yes
+  endif
+  # /copied
+
+  ifndef USE_EXTERN_FFMPEG # but you can use it on other platforms as well by defining USE_EXTERN_FFMPEG=yes
          SDK_FLAGS+="FFMPEG_EXTERN=no"
-     else
+         FFMPEG_EXTERN=no
+  else
      ifeq ("$(USE_EXTERN_FFMPEG)","yes")
          SDK_FLAGS+="FFMPEG_EXTERN=yes"
      else
          SDK_FLAGS+="FFMPEG_EXTERN=no"
      endif
-     endif
   endif
-  # /copied
+  
 
   ifeq ($(filter USE_BLUEZ=%,$(TMP_SDK_FLAGS)),)
     SDK_FLAGS+="USE_BLUEZ=no"
