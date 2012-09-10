@@ -123,7 +123,7 @@ typedef struct _vp_api_io_stage_
   void                 *cfg;
   vp_api_stage_funcs_t  funcs;
   vp_api_io_data_t      data;
-#if defined(USE_ELINUX) || defined(USE_LINUX)
+#if defined(USE_ELINUX) || defined(USE_LINUX) || defined(USE_OSX)
   const char * name;
   uint8_t      disabled;
 #endif

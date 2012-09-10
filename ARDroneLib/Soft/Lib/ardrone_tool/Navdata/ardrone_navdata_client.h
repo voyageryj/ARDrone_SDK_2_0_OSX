@@ -49,7 +49,7 @@ typedef enum
     NAVDATA_FULL
 } navdata_mode_t;
 
-extern ardrone_navdata_handler_t ardrone_navdata_handler_table[] WEAK;
+extern ardrone_navdata_handler_t ardrone_navdata_handler_table[]  WEAK;
 
 uint32_t ardrone_navdata_client_get_num_retries(void);
 C_RESULT ardrone_navdata_client_init(void);
