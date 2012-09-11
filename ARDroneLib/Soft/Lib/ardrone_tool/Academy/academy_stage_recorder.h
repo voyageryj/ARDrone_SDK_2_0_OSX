@@ -16,6 +16,11 @@ typedef enum
 ardrone_academy_record_state;
 #endif
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+
 typedef struct _ardrone_academy_stage_recorder_config_t_ ardrone_academy_stage_recorder_config_t;
 
 typedef void (*ardrone_academy_recorder_callback)(ardrone_academy_stage_recorder_config_t *);
@@ -42,5 +47,7 @@ C_RESULT ardrone_academy_stage_recorder_close(ardrone_academy_stage_recorder_con
 
 extern const vp_api_stage_funcs_t ardrone_academy_stage_recorder_funcs;
 extern ardrone_academy_stage_recorder_config_t ardrone_academy_stage_recorder_config;
-
+#ifdef __cplusplus
+}
+#endif
 #endif // _ACADEMY_STAGE_RECORDER_H_

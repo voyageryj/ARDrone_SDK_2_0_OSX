@@ -11,6 +11,10 @@
 #define CAMIF_NUM_BUFFERS               2
 #define COM_INPUT_LANDING_TIME          (2)         /* Time drone is waiting for input before landing */
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+	
 /**
  * \enum print_mask_t
  * \brief mask to choose where to syslog
@@ -53,5 +57,8 @@ typedef enum
   ADC_CMD_RESYNC_STOP                     = 29, /**resync stop**/
 } ADC_COMMANDS;
 
+#ifdef __cplusplus
+}
+#endif
 
 #endif // _ARDRONE_COMMON_CONFIG_H_

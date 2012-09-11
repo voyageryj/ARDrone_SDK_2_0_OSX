@@ -7,6 +7,10 @@
 
 #define VIDEO_ENCODED_FILENAME_LENGTH 1024
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #ifndef _VIDEO_ENCODED_RECORD_STATE_ENUM_
 #define _VIDEO_ENCODED_RECORD_STATE_ENUM_
 typedef enum
@@ -78,6 +82,8 @@ extern video_stage_encoded_recorder_config_t video_stage_encoded_recorder_config
 PROTO_THREAD_ROUTINE_STACK(video_stage_encoded_recorder,param,VIDEO_STAGE_ENCODED_RECORDER_STACK_SIZE);
 #endif
 
-
+#ifdef __cplusplus
+}
+#endif
 
 #endif // _VIDEO_STAGE_ENCODED_RECORDER_H_

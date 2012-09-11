@@ -20,6 +20,9 @@
 
 #include <ardrone_tool/Video/video_stage_recorder.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 #ifndef _VIDEO_RECORD_STATE_ENUM_
 #define _VIDEO_RECORD_STATE_ENUM_
@@ -51,6 +54,10 @@ void write_video_frame(AVFormatContext *oc, AVStream *st);
 void close_video(AVFormatContext *oc, AVStream *st);
 
 extern const vp_api_stage_funcs_t video_ffmpeg_recorder_funcs;
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif // _VIDEO_STAGE_RECORDER_H_
 

@@ -5,7 +5,11 @@
 #include <VP_Com/vp_com.h>
 
 #define VIDEO_MAX_RETRIES 5
- 
+
+#ifdef __cplusplus
+extern "C"{
+#endif
+	
 typedef struct _video_com_config_t
 {
   vp_com_t*             com;
@@ -54,5 +58,9 @@ C_RESULT video_com_stage_close(video_com_config_t *cfg);
 C_RESULT video_com_multisocket_stage_open(video_com_multisocket_config_t *cfg);
 C_RESULT video_com_multisocket_stage_transform(video_com_multisocket_config_t *cfg, vp_api_io_data_t *in, vp_api_io_data_t *out);
 C_RESULT video_com_multisocket_stage_close(video_com_multisocket_config_t *cfg);
+	
+#ifdef __cplusplus
+}
+#endif
 
 #endif // _VIDEO_COM_STAGE_H_

@@ -4,6 +4,10 @@
 #include <VP_Api/vp_api.h>
 #include <VP_Api/vp_api_picture.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+	
 typedef struct _buffer_to_picture_config_t
 {
   vp_api_picture_t* picture;
@@ -31,5 +35,10 @@ C_RESULT buffer_to_picture_transform(buffer_to_picture_config_t *cfg, vp_api_io_
 C_RESULT buffer_to_picture_close(buffer_to_picture_config_t *cfg);
 
 extern const vp_api_stage_funcs_t buffer_to_picture_funcs;
+	
+#ifdef __cplusplus
+}
+#endif
+
 
 #endif // _BUFFER_TO_PICTURE_H_

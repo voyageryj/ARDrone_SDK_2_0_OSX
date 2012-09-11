@@ -8,6 +8,10 @@
 
 #include <VP_Com/vp_com.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /// Initializations for serial communication
 /// Serial link 0 is used for navdata & ATCmd
 /// Serial link 1 is used for video
@@ -50,4 +54,8 @@ void serial_config_socket(vp_com_socket_t* socket, VP_COM_SOCKET_TYPE type);
   #define COM_CONFIG_SOCKET_RAW_CAPTURE(socket, type, opt, serverhost)  serial_config_socket(socket, type)
 #endif // USE_VIDEO_SERIAL
 
+#ifdef __cplusplus
+}
+#endif
+	
 #endif // _CONFIG_SERIAL_H_

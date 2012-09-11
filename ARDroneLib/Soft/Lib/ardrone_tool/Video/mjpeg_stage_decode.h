@@ -4,6 +4,10 @@
 #include <VP_Api/vp_api.h>
 #include <MJPEG/mjpeg.h>
 
+#ifdef __cplusplus
+extern "C"{
+#endif
+	
 typedef struct _mjpeg_stage_decoding_config_t
 {
   stream_t          stream;
@@ -20,5 +24,9 @@ C_RESULT mjpeg_stage_decoding_close(mjpeg_stage_decoding_config_t *cfg);
 
 extern uint32_t mjpeg_stage_num_picture_decoded;
 extern const vp_api_stage_funcs_t mjpeg_decoding_funcs;
+	
+#ifdef __cplusplus
+}
+#endif
 
 #endif // _MJPEG_STAGE_DECODE_H_

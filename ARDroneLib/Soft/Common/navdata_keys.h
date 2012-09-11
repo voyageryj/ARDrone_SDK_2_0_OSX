@@ -8,7 +8,7 @@
 	#define NAVDATA_OPTION_CKS(x,y,z)
 #endif
 
-
+	
 NAVDATA_OPTION_DEMO ( navdata_demo_t , navdata_demo , NAVDATA_DEMO_TAG)
 
 NAVDATA_OPTION( navdata_time_t,           navdata_time            , NAVDATA_TIME_TAG             )
@@ -38,6 +38,7 @@ NAVDATA_OPTION( navdata_kalman_pressure_t,navdata_kalman_pressure	, NAVDATA_KALM
 NAVDATA_OPTION( navdata_hdvideo_stream_t ,navdata_hdvideo_stream  , NAVDATA_HDVIDEO_STREAM_TAG	 )
 NAVDATA_OPTION( navdata_wifi_t           ,navdata_wifi            , NAVDATA_WIFI_TAG             )
 
+	
 
 // TODO: maybe navdata_zimmu_3000 coult be integrated into an existing navdata like navdata_adc_data_frame_t or ...
 NAVDATA_OPTION( navdata_zimmu_3000_t,     navdata_zimmu_3000      , NAVDATA_ZIMMU_3000_TAG       )

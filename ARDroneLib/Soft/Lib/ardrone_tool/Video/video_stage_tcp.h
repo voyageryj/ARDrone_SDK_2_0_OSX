@@ -9,6 +9,9 @@
 #define _VIDEO_STAGE_TCP_H_
 #include <VP_Api/vp_api.h>
 #include <inttypes.h>
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 typedef struct _video_stage_tcp_config_t
 {
@@ -32,4 +35,8 @@ C_RESULT video_stage_tcp_close(video_stage_tcp_config_t *cfg);
 
 extern const vp_api_stage_funcs_t video_stage_tcp_funcs;
 
+#ifdef __cplusplus
+}
+#endif
+	
 #endif // _VIDEO_STAGE_TCP_H_

@@ -15,6 +15,10 @@
 #include <libavformat/avformat.h>
 #include <libswscale/swscale.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+	
 typedef struct _ffmpeg_picture_
 {
   enum PixelFormat format;
@@ -47,6 +51,10 @@ C_RESULT ffmpeg_stage_decoding_close(ffmpeg_stage_decoding_config_t *cfg);
 
 extern const vp_api_stage_funcs_t ffmpeg_decoding_funcs;
 
+#ifdef __cplusplus
+}
+#endif
+	
 #endif // _VIDEO_STAGE_FFMPEG_DECODER_H_
 
 #endif // FFMPEG_SUPPORT

@@ -3,7 +3,10 @@
 
 #include <ardrone_tool/Navdata/ardrone_navdata_client.h>
 #include <VLIB/video_codec.h>
-
+#ifdef __cplusplus
+extern "C" {
+#endif
+	
 C_RESULT ardrone_academy_navdata_init( void* data );
 C_RESULT ardrone_academy_navdata_process( const navdata_unpacked_t* const navdata );
 C_RESULT ardrone_academy_navdata_release( void );
@@ -24,5 +27,8 @@ bool_t ardrone_academy_navdata_check_usb_record_status(void);
 bool_t ardrone_academy_navdata_check_takeoff_cancelled(void);
 void ardrone_academy_navdata_set_wifi_record_codec(codec_type_t newCodec);
 
+#ifdef __cplusplus
+}
+#endif
 
 #endif //! _ARDRONE_ACADEMY_NAVDATA_H_

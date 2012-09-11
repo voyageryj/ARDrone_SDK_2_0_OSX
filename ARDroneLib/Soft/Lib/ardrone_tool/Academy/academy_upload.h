@@ -10,6 +10,10 @@
 
 #include <ardrone_tool/Academy/academy.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 void academy_setState(academy_state_t *state, ACADEMY_STATE academy_state);
 void academy_resetState(academy_state_t *state);
 void academy_nextState(academy_state_t *state);
@@ -21,5 +25,10 @@ _ftp_status academy_remove_ftp_directory(_ftp_t *ftp, const char *directory_name
 
 void academy_upload_init(void);
 void academy_upload_shutdown(void);
+
+#ifdef __cplusplus
+}
+#endif
+
 
 #endif // _ACADEMY_UPLOAD_H_

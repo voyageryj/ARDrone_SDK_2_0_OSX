@@ -341,6 +341,7 @@ ARDRONE_CONFIG_KEY_STR_a10("custom",  profile_desc,        INI_STRING,   string_
 
 ARDRONE_CONFIG_KEY_STR_a10("custom",  session_id,          INI_STRING,   string_t,    char*,    (K_READ|K_WRITE|K_NOBIND|K_SHALLOW), (K_READ|K_WRITE), DEFAULT_CONFIG_ID,     default_config_callback,CAT_SESSION)
 ARDRONE_CONFIG_KEY_STR_a10("custom",  session_desc,        INI_STRING,   string_t,    char*,    (K_READ|K_WRITE),  (K_READ|K_WRITE),                                  DEFAULT_SESSION_DESC,              session_desc_callback,CAT_SESSION)
+	
 
 /* Prevents a further inclusion of config_keys from generating garbage code */
 #undef ARDRONE_CONFIG_KEY_IMM_a10

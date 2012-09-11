@@ -26,6 +26,10 @@
 #define ARDRONE_CONFIG_KEY_STR(KEY, NAME, INI_TYPE, C_TYPE, C_TYPE_PTR, RW, DEFAULT, CALLBACK)
 #include <config_keys.h>
 
+#ifdef __cplusplus
+extern "C"{
+#endif
+	
 typedef void (*ardrone_tool_configuration_callback)(bool_t result);
 
 typedef struct _ardrone_tool_configuration_data_t {
@@ -64,5 +68,9 @@ bool_t ardrone_tool_configuration_get(ardrone_tool_configuration_callback result
 bool_t ardrone_tool_custom_configuration_get(ardrone_tool_configuration_callback result_callback);
 
 PROTO_THREAD_ROUTINE(ardrone_configuration, data);
+	
+#ifdef __cplusplus
+}
+#endif
 
 #endif // _ARDRONE_TOOL_CONFIGURATION_H_

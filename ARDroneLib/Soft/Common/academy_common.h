@@ -13,6 +13,10 @@
 #define ACADEMY_USERNAME_SIZE		64
 #define ACADEMY_PASSWORD_SIZE		64
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 typedef enum _ACADEMY_RESULT_
 {
 	ACADEMY_RESULT_NONE = 0,
@@ -45,5 +49,10 @@ typedef struct _academy_user_t_
 
 typedef void (*academy_callback)(academy_state_t state);
 typedef void (*academy_download_new_media)(const char *mediaPath);
+	
+#ifdef __cplusplus
+}
+#endif
+	
 
 #endif // _ACADEMY_COMMON_H_

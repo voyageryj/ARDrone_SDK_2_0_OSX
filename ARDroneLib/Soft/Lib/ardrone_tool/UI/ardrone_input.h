@@ -4,6 +4,10 @@
 #include <VP_Os/vp_os_types.h>
 #include <ardrone_tool/ardrone_tool.h>
 
+#ifdef __cplusplus
+extern "C"{
+#endif
+	
 typedef struct _input_device_t {
   char name[MAX_NAME_LENGTH];
 
@@ -59,5 +63,10 @@ C_RESULT ardrone_tool_input_reset(void);
 C_RESULT ardrone_tool_input_update(void);
 C_RESULT ardrone_tool_input_shutdown(void);
 C_RESULT ardrone_tool_input_start_reset(void);
+	
+#ifdef __cplusplus
+}
+#endif
+
 
 #endif // _ARDRONE_INPUT_H_

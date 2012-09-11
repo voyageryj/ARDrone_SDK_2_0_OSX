@@ -24,6 +24,10 @@
 
 #include <ardrone_tool/Video/video_stage_encoded_recorder.h>
 
+#ifdef __cplusplus
+extern "C"{
+#endif
+	
 typedef struct _video_recorder_thread_param_t_
 {
     int32_t priority;
@@ -37,4 +41,8 @@ void video_recorder_suspend_thread(void);
 void video_recorder_resume_thread(void);
 uint32_t video_recorder_get_num_retries(void);
 
+#ifdef __cplusplus
+}
+#endif
+	
 #endif

@@ -57,6 +57,10 @@
  * a drone setting.
  */
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 typedef C_RESULT (*ardrone_at_configuration_set)(void* value, char* ses_id, char* usr_id, char* app_id);
 
 /**
@@ -825,5 +829,8 @@ void ardrone_switch_to_user_id(const char *new_user_id); // Must be used only wi
 ardrone_users_t *ardrone_get_user_list(void); // Get a list of users (MUST BE FREED BY A ardrone_free_user_list CALL)
 void ardrone_free_user_list (ardrone_users_t **users); // Free an ardrone_users_t list allocated by ardrone_get_user_list
 
+#ifdef __cplusplus
+}
+#endif
 
 #endif // _ARDRONE_API_H_

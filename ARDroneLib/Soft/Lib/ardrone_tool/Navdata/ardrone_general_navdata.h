@@ -26,11 +26,19 @@ typedef enum _NAVDATA_REQUEST_STATE_
     NAVDATA_REQUEST_DONE,
   } NAVDATA_REQUEST_STATE;
 
+#ifdef __cplusplus
+extern "C"{
+#endif
+	
 C_RESULT ardrone_general_navdata_init( void* data );
 C_RESULT ardrone_general_navdata_process( const navdata_unpacked_t* const navdata );
 C_RESULT ardrone_general_navdata_release( void );
 
 extern int configWasDone;
+	
+#ifdef __cplusplus
+}
+#endif
 
 #endif //! _ARDRONE_NAVDATA_GENERAL_H_
 

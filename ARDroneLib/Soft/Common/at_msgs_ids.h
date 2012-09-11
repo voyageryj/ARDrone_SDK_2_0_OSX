@@ -9,7 +9,10 @@
 #define _AT_MSGS_IDS_H_
 
 #include <ATcodec/ATcodec_api.h>
-
+#ifdef __cplusplus
+extern "C" {
+#endif
+	
 typedef struct _AT_CODEC_MSG_IDS_
 {
 # define ATCODEC_DEFINE_AT_CMD(ID,Str,From,Cb,Prio) AT_CODEC_MSG_ID ID;
@@ -23,4 +26,8 @@ typedef struct _AT_CODEC_MSG_IDS_
 
 extern AT_CODEC_MSG_IDS ids;
 
+#ifdef __cplusplus
+}
+#endif
+	
 #endif // _AT_MSGS_IDS_H_

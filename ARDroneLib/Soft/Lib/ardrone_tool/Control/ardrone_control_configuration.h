@@ -34,6 +34,14 @@ typedef struct _ardrone_control_configuration_event_t {
 
 } ardrone_control_configuration_event_t;
 
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+	
 C_RESULT ardrone_control_configuration_run( uint32_t ardrone_state, ardrone_control_configuration_event_t* event );
+#ifdef __cplusplus
+}
+#endif
 
 #endif // _ARDRONE_CONTROL_CONFIGURATION_H_

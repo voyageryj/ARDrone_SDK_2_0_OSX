@@ -2,8 +2,10 @@
 #define _VIDEO_STAGE_MERGE_SLICES_H_
 
 #include <VP_Api/vp_api.h>
-
-
+#ifdef __cplusplus
+extern "C"{
+#endif
+	
 typedef struct {
   uint32_t accumulated_size;
   uint32_t buffer_size;
@@ -26,5 +28,9 @@ C_RESULT video_stage_merge_slices_transform(video_stage_merge_slices_config_t *c
 C_RESULT video_stage_merge_slices_close(video_stage_merge_slices_config_t *cfg);
 
 extern const vp_api_stage_funcs_t video_stage_merge_slices_funcs;
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif

@@ -71,11 +71,19 @@ printf (__VA_ARGS__);		\
 #define BYTE_TO_MBYTE(a) (a / 1048576)
 #define MBYTE_TO_BYTE(a) (a * 1048576)
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 void academy_init(const char *flight_dir, int max_storing_size);
 void academy_shutdown(void);
 C_RESULT academy_connect(const char *username, const char *password, academy_callback callback);
 C_RESULT academy_disconnect(void);
 
 extern char flight_dir[];
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif // _ACADEMY_H_

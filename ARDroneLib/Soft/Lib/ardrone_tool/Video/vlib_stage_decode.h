@@ -4,6 +4,10 @@
 #include <VP_Api/vp_api.h>
 #include <VLIB/video_codec.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 typedef struct _vlib_stage_decoding_config_t
 {
   video_controller_t  controller;
@@ -17,4 +21,8 @@ C_RESULT vlib_stage_decoding_close(vlib_stage_decoding_config_t *cfg);
 
 extern const vp_api_stage_funcs_t vlib_decoding_funcs;
 
+#ifdef __cplusplus
+}
+#endif
+	
 #endif // _VLIB_STAGE_DECODE_H_

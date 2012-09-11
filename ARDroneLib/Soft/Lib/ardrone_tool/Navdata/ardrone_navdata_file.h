@@ -6,6 +6,10 @@
 
 #include <ardrone_tool/Navdata/ardrone_navdata_client.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+	
 extern FILE* navdata_file;
 
 typedef void (*ardrone_navdata_custom_print_header)(FILE *navdata_file);
@@ -23,5 +27,9 @@ typedef struct _ardrone_navdata_file_data_
 C_RESULT ardrone_navdata_file_init( void* data );
 C_RESULT ardrone_navdata_file_process( const navdata_unpacked_t* const navdata );
 C_RESULT ardrone_navdata_file_release( void );
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif // _ARDRONE_NAVDATA_FILE_H_

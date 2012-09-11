@@ -10,6 +10,10 @@
 
 #include <ardrone_tool/Academy/academy.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 void academy_check_memory(void);
 void academy_setState(academy_state_t *state, ACADEMY_STATE academy_state);
 void academy_resetState(academy_state_t *state);
@@ -24,5 +28,9 @@ void academy_download_init(academy_download_new_media callback);
 void academy_download_shutdown(void);
 void academy_download_pause(void);
 void academy_download_resume(void);
+	
+#ifdef __cplusplus
+}
+#endif
 
 #endif // _ACADEMY_DOWNLOAD_H_

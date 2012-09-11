@@ -14,6 +14,10 @@
 
 #define NAVDATA_MAX_RETRIES     5
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+	
 // Facility to declare a set of navdata handler
 // Handler to resume control thread is mandatory
 #define BEGIN_NAVDATA_HANDLER_TABLE                                 \
@@ -59,5 +63,8 @@ C_RESULT ardrone_navdata_client_shutdown(void);
 C_RESULT ardrone_navdata_open_server(void);
 
 PROTO_THREAD_ROUTINE( navdata_update , nomParams );
+#ifdef __cplusplus
+}
+#endif
 
 #endif // _ARDRONE_NAVDATA_H_

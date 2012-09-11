@@ -8,12 +8,19 @@
 
 #include <VP_Com/vp_com.h>
 
+
+	
 // Each tools must implement this functions
 extern vp_com_t*             wifi_com(void);
 extern vp_com_config_t*      wifi_config(void);
 extern vp_com_connection_t*  wifi_connection(void);
-
+#ifdef __cplusplus
+extern "C" {
+#endif
 void wifi_config_socket(vp_com_socket_t* socket, VP_COM_SOCKET_TYPE type, int32_t port, const char* serverhost);
+#ifdef __cplusplus
+}
+#endif
 
 #ifdef USE_NAVDATA_IP
   #define COM_NAVDATA()             wifi_com()

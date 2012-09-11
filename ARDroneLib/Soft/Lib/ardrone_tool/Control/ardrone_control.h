@@ -32,6 +32,10 @@ typedef struct _ardrone_control_event_t {
 
 } ardrone_control_event_t, *ardrone_control_event_ptr_t;
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+	
 C_RESULT ardrone_control_init(void);
 C_RESULT ardrone_control_shutdown(void);
 C_RESULT ardrone_control_resume_on_navdata_received(uint32_t ardrone_state);
@@ -42,5 +46,9 @@ C_RESULT ardrone_control_write(const uint8_t* buffer, int32_t* size);
 C_RESULT ardrone_control_send_event( ardrone_control_event_t* event );
 
 PROTO_THREAD_ROUTINE( ardrone_control, nomParams );
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif // _ARDRONE_CONTROL_H_

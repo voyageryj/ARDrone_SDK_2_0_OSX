@@ -10,6 +10,10 @@
 
 #include <ardrone_tool/Video/vlib_stage_decode.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 typedef enum{
 	LE_DISABLED=0,
 	LE_WAITING,
@@ -33,5 +37,9 @@ C_RESULT latency_estimation_stage_transform( vp_stages_latency_estimation_config
 C_RESULT latency_estimation_stage_close( vp_stages_latency_estimation_config_t *cfg );
 
 extern const vp_api_stage_funcs_t vp_stages_latency_estimation_funcs;
+	
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* VIDEO_STAGE_LATENCY_ESTIMATION_H_ */

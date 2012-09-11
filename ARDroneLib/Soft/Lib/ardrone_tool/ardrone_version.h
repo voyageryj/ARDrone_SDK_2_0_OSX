@@ -3,6 +3,10 @@
 
 #include <VP_Os/vp_os_types.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 typedef struct _ardrone_version_t
 {
   uint32_t majorVersion;
@@ -65,4 +69,10 @@ int getDroneVersion (const char *tempPath, const char *droneIp, ardrone_version_
 #define IS_ARDRONE2 (2 == ARDRONE_VERSION()) // Drone 2
 #define IS_LEAST_ARDRONE2 (2 <= ARDRONE_VERSION()) // Drone 2 and laters
 
+#ifdef __cplusplus
+}
+#endif
+	
+	
+	
 #endif //_ARDRONE_VERSION_H_

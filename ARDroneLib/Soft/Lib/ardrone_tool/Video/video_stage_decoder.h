@@ -30,6 +30,10 @@
 
 #include <VLIB/Stages/vlib_stage_decode.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+	
 typedef struct _video_decoder_config_t
 {
   // Input data : dst_picture->format
@@ -55,6 +59,10 @@ C_RESULT video_stage_decoder_close (video_decoder_config_t *cfg);
 
 extern const vp_api_stage_funcs_t video_decoding_funcs;
 
+#ifdef __cplusplus
+}
+#endif
+	
 #endif // __VIDEO_STAGE_DECODER_H__
 
 #endif // FFMPEG_SUPPORT

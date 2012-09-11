@@ -28,6 +28,10 @@
 #include <ardrone_tool/Video/video_stage_merge_slices.h>
 #include <ardrone_tool/Video/video_stage_latency_estimation.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+	
 typedef struct _specific_stages_t_
 {
     vp_api_io_stage_t * stages_list;
@@ -62,5 +66,8 @@ void video_stage_suspend_thread(void);
 void video_stage_resume_thread(void);
 uint32_t video_stage_get_num_retries(void);
 
+#ifdef __cplusplus
+}
+#endif
 
 #endif // _VIDEO_STAGE_H_

@@ -3,6 +3,10 @@
 
 #include <VP_Os/vp_os_types.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 typedef enum { 
 	CODEC_UNKNNOWN=0,
 	CODEC_VLIB,
@@ -82,4 +86,9 @@ typedef enum
 C_RESULT init_parrot_video_encapsulation_header(parrot_video_encapsulation_t * header);
 int pave_is_same_frame(parrot_video_encapsulation_t * header1 , parrot_video_encapsulation_t * header2 );
 void dumpPave (parrot_video_encapsulation_t *PaVE);
+	
+#ifdef __cplusplus
+}
+#endif
+
 #endif

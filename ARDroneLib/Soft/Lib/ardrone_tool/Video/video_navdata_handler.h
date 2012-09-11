@@ -4,7 +4,10 @@
 #include <ardrone_tool/Navdata/ardrone_navdata_client.h>
 
 // Handler that reset video connexion when there is a timeout in navdata connexion
-
+#ifdef __cplusplus
+extern "C" {
+#endif
+	
 extern uint32_t hdvideo_remaining_frames;
 extern uint32_t hdvideo_remaining_kilobytes;
 extern uint32_t hdvideo_maximum_kilobytes;
@@ -17,5 +20,9 @@ C_RESULT video_navdata_handler_release( void );
 
 void startRetreiving (void);
 void endRetreiving (void);
+	
+#ifdef __cplusplus
+}
+#endif
 
 #endif // _VIDEO_NAVDATA_HANDLER_H_

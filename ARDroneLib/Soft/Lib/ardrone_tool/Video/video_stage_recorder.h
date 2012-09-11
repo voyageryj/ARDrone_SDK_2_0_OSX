@@ -8,6 +8,11 @@
 
 #ifndef _VIDEO_RECORD_STATE_ENUM_
 #define _VIDEO_RECORD_STATE_ENUM_
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+	
 typedef enum
 {
 	VIDEO_RECORD_HOLD, // Video recording is on hold, waiting for the start command. This is the default state.
@@ -33,4 +38,8 @@ C_RESULT video_stage_recorder_close(video_stage_recorder_config_t *cfg);
 
 extern const vp_api_stage_funcs_t video_recorder_funcs;
 
+#ifdef __cplusplus
+}
+#endif
+	
 #endif // _VIDEO_STAGE_RECORDER_H_
